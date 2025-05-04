@@ -1,10 +1,30 @@
-<p style="color: green"><%= notice %></p>
+<%= turbo_frame_tag "modal" do %>
+  <div class="modal">
+    <div class="modal-content">
+      <% if @project.audio_file.attached? %>
+        <%= image_tag "headphones.jpg", class: "modal-item" %>
+        <audio controls>
+          <source src="<%= url_for(@project.audio_file) %>" type="<%= @project.audio_file.content_type %>">
+          Your browser does not support the audio element.
+        </audio>
+      <% else %>
+        <iframe class="modal-item" src=<%= @project.link %> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <% end %>
 
-<%= render @project %>
-
-<div>
-  <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
-
-  <%= button_to "Destroy this project", @project, method: :delete %>
-</div>
+        <div>
+          <%= link_to "#", data: {
+            controller: "modals",
+          action: "modals#close"
+          }, class: "close-button" do %>
+            <%= image_tag "close.png" %>
+          <% end %>
+        </div>
+        <% if user_signed_in? %>
+          <div>
+            <%= link_to "Edit this project", edit_project_path(@project) %> |
+            <%= button_to "Destroy this project", @project, method: :delete %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+<% end %>

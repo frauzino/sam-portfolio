@@ -1,0 +1,25 @@
+<div class="photos-container" data-controller="filter">
+
+  <div class="filter-header">
+    <h2 data-filter-target="filter" data-action="click->filter#filter" data-filter="all" class="active">
+      All
+    </h2>
+    <% @photos.map(&:photo_type).uniq.each do |photo_type| %>
+      <h2 data-filter-target="filter" data-action="click->filter#filter" data-filter="<%= photo_type.parameterize %>">
+        <%= photo_type %>
+      </h2>
+    <% end %>
+  </div>
+
+  <% @photos.group_by(&:photo_type).each do |photo_type, photos| %>
+    <div class="photos-grid" data-filter-target="item" data-filter="<%= photo_type.parameterize %>">
+      <% photos.each do |photo| %>
+          <%= render photo %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <%= link_to "New photo", new_photo_path %>
+<% end %>

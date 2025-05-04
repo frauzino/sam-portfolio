@@ -1,0 +1,25 @@
+<%= turbo_frame_tag "modal" do %>
+  <div class="modal">
+    <div class="<%= @photo.photo_type == "Portrait" ? "portrait-photo" : "landscape-photo"%> modal-content">
+      <%= image_tag @photo.image, class: "modal-item" %>
+      <div class="modal-text">
+        <% if @photo.photo_type == "Portrait" %>
+          <%= link_to @photo.description, @photo.link, target: "_blank" %>
+        <% else %>
+          <p class="modal-title"><%= @photo.title %></p>
+          <br>
+          <p class="modal-description"><%= @photo.description %></p>
+        <% end %>
+      <div>
+        <%= link_to "Edit this photo", edit_photo_path(@photo) %> |
+        <%= link_to "#", data: {
+        controller: "modals",
+        action: "modals#close"
+        }, class: "close-button" do %>
+          <%= image_tag "close.png" %>
+        <% end %>
+        <%= button_to "Delete this photo", @photo, method: :delete %>
+      </div>
+    </div>
+  </div>
+<% end %>

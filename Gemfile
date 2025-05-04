@@ -24,7 +24,11 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Use Dart SASS [https://github.com/rails/dartsass-rails]
+gem "sassc"
 gem "dartsass-rails"
+
+# Devise for authentication
+gem "devise"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"

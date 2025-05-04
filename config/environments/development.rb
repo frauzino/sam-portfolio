@@ -11,6 +11,11 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # Enable live compilation of assets in development mode
+  config.assets.debug = true
+  config.assets.compile = true
+  config.assets.check_precompiled_asset = false
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -32,6 +37,8 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local

@@ -22,6 +22,26 @@
   </div>
 
   <div>
+    <%= form.label :project_type, style: "display: block" %>
+    <%= form.select :project_type, options: ["Voice", "Commercial", "Film", "Clown"] %>
+  </div>
+
+  <div>
+    <%= form.label "Preview Image" %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div>
+    <%= form.label "Youtube Link" %>
+    <%= form.text_field :link %>
+  </div>
+
+  <div>
+    <%= form.label "Audio Recording" %>
+    <%= form.file_field :audio_file %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

@@ -1,0 +1,23 @@
+.flash {
+  position: fixed;
+  top: 7rem;
+  right: 5rem;
+  z-index: 9999;
+  padding: 1rem;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  background-color: var(--neutral-100);
+  width: fit-content;
+  max-width: 20rem;
+  animation: fadeOut 0.5s ease-in-out 8s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,3 +1,17 @@
-<div class="home-banner">
+<div class="home-banner" data-controller="parallax" data-parallax-target="banner">
   <%= image_tag "sam_portrait.jpg", alt: 'Portrait of Samantha Bitonti', class: 'home-banner-image' %>
+</div>
+<div class="home-content-container">
+  <p class="home-quote">
+    <em>"You've always had the power, my dear. <br>You just had to learn it for yourself."</em>
+  </p>
+  <div class="text-with-image">
+    <p class="twi-text">
+      Samantha Rose Bitonti is a Tiohtià:ke/Montreal-based actor and creator, driven to tell
+      stories that make you smile before you realize and leave your heart ablaze. She moves
+      through the world with empathy and fervour. A critical thinker, a lover of art, an advocate
+      for community and a keen observer of the power of storytelling.
+    </p>
+    <%= image_tag "ruby-slippers.png", alt: "Ruby Slippers", class: "twi-image" %>
+  </div>
 </div>

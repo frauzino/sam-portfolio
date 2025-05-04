@@ -1,0 +1,25 @@
+<div class="events-container" data-controller="filter">
+
+  <div class="filter-header">
+    <h2 data-filter-target="filter" data-action="click->filter#filter" data-filter="all" class="active">
+      All
+    </h2>
+    <% @events.map(&:event_type).uniq.each do |event_type| %>
+      <h2 data-filter-target="filter" data-action="click->filter#filter" data-filter="<%= event_type.parameterize %>">
+        <%= event_type %>
+      </h2>
+    <% end %>
+  </div>
+
+  <% @events.group_by(&:event_type).each do |event_type, events| %>
+    <div class="events-grid" data-filter-target="item" data-filter="<%= event_type.parameterize %>">
+      <% events.each do |event| %>
+          <%= render event %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <%= link_to "New event", new_event_path %>
+<% end %>

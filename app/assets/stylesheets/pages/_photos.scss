@@ -1,0 +1,21 @@
+.photos-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 5rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--neutral-300);
+
+  a {
+    text-decoration: none;
+    display: flex;
+  }
+}
+
+.photos-grid.hidden {
+  display: none;
+}

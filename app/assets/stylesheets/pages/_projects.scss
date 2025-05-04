@@ -1,0 +1,22 @@
+.projects-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 5rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--neutral-300);
+
+  a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+  }
+}
+
+.projects-grid.hidden {
+  display: none;
+}

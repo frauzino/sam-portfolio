@@ -1,0 +1,20 @@
+<div id="<%= dom_id photo %>" class="photo <%= photo.photo_type == "Portrait" ? "portrait-photo" : "landscape-photo" %>">
+  <%= image_tag photo.image, class: "photo-image" %>
+  <div class="photo-text">
+    <% if photo.photo_type == "Portrait" %>
+      <% if photo.link %>
+        <%= link_to photo.description, photo.link, target: "_blank", class: "photo-description" %>
+      <% else %>
+        <p class="photo-description"><%= photo.description %></p>
+      <% end %>
+    <% else %>
+      <p class="photo-title"><%= photo.title %></p>
+      <p class="photo-description"><%= photo.description %></p>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+    <div class="delete-photo">
+      <%= button_to "Delete this photo", photo, method: :delete %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-banner" data-controller="parallax" data-parallax-target="banner">
+  <% case current_page?() %>
+  <% when current_page?(about_path) %>
+    <%= image_tag "sam_portrait.jpg", alt: 'Banner image of Samantha Bitonti', class: 'page-banner-image', style: "transform: translateY(13rem)" %>
+  <% when current_page?(projects_path) %>
+    <%= image_tag "reel.jpg", alt: 'Banner image of a reel', class: 'page-banner-image' %>
+  <% when current_page?(events_path) %>
+    <%= image_tag "pens.jpg", alt: 'Banner image of pens', class: 'page-banner-image'%>
+  <% when current_page?(photos_path) %>
+    <%= image_tag "roses.jpg", alt: 'Banner image of roses', class: 'page-banner-image', style: "transform: translateY(-55rem)" %>
+  <% when current_page?(new_contact_form_path) %>
+    <%= image_tag "montreal_night.jpg", alt: 'Banner image of montreal at night', class: 'page-banner-image' %>
+  <% else %>
+    <%= image_tag "curtain.jpg", alt: 'Banner image of a curtain', class: 'page-banner-image' %>
+  <% end %>
+</div>
