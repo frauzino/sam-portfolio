@@ -1,7 +1,7 @@
 <div id="<%= dom_id event %>" class="event">
 
   <% if event.image.attached? %>
-    <%= image_tag event.image, class: "event-image" %>
+    <%= cl_image_tag event.image.key, class: "event-image" %>
   <% else %>
     <%= image_tag "event_default.jpg", class: "event-image" %>
   <% end %>
