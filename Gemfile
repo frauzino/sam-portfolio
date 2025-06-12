@@ -33,6 +33,9 @@ gem "devise"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Use Cloudinary for image and video management [https://cloudinary.com/documentation/rails_integration]
+gem "cloudinary"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

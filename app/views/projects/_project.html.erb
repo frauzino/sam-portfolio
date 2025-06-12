@@ -1,7 +1,7 @@
 <div id="<%= dom_id project %>" class="project">
 
   <% if project.image.attached? %>
-    <%= image_tag project.image, class: "project-image" %>
+    <%= cl_image_tag project.image.key, class: "project-image" %>
   <% elsif project.project_type == "Voice" && project.link.include?("youtube") %>
     <%= image_tag project.youtube_thumbnail, class: "project-image" %>
   <% elsif project.project_type == "Voice" %>
