@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   has_one_attached :image
   has_one_attached :audio_file
 
-  validates :project_type, presence: true, inclusion: { in: %w[Film Voice] }
+  validates :project_type, presence: true, inclusion: { in: %w[Film Voice Commercial Clown] }
   validates :title, presence: true
   validates :description, presence: true
   # validates :link, presence: true, format: { with: URI::regexp(%w[http https]), message: "must be a valid URL" }
