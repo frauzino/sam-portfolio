@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "modal" do %>
   <div class="modal">
     <div class="<%= @photo.photo_type == "Portrait" ? "portrait-photo" : "landscape-photo"%> modal-content">
-      <%= cl_image_tag @photo.image.key, crop: "fill", gravity: "face", height: 300, width: 300 class: "modal-item" %>
+      <%= cl_image_tag @photo.image.key, crop: "fill", gravity: "face", height: 1000, width: 1000, quality: "auto", class: "modal-item" %>
       <div class="modal-text">
         <% if @photo.photo_type == "Portrait" %>
           <%= link_to @photo.description, @photo.link, target: "_blank" %>
