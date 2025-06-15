@@ -6,7 +6,6 @@ class Project < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :image, attached: true, content_type: ['image/png', 'image/jpeg'], size: { less_than: 10.megabytes, message: 'should be less than 10MB' }
-  validates :audio_file, attached: true, content_type: ['audio/mpeg', 'audio/mp3', 'audio/wav'], size: { less_than: 10.megabytes, message: 'should be less than 10MB' }
   # validates :link, presence: true, format: { with: URI::regexp(%w[http https]), message: "must be a valid URL" }
 
   before_save :adjust_video_link

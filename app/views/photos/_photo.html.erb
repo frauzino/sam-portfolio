@@ -1,5 +1,5 @@
 <div id="<%= dom_id photo %>" class="photo <%= photo.photo_type == "Portrait" ? "portrait-photo" : "landscape-photo" %>">
-  <%= cl_image_tag photo.image.key, class: "photo-image" %>
+  <%= cl_image_tag photo.image.key, gravity: :face, class: "photo-image" %>
   <div class="photo-text">
     <% if photo.photo_type == "Portrait" %>
       <% if photo.link %>
