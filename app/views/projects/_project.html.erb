@@ -2,12 +2,12 @@
 
   <% if project.image.attached? %>
     <%= cl_image_tag project.image.key, class: "project-image" %>
-  <% elsif project.project_type == "Voice" && project.link.include?("youtube") %>
-    <%= image_tag project.youtube_thumbnail, class: "project-image" %>
+  <% elsif project.project_type == "Voice" && (project.link.include?("youtube") || project.link.include?("vimeo")) %>
+    <%= image_tag project.video_thumbnail, class: "project-image" %>
   <% elsif project.project_type == "Voice" %>
     <%= image_tag "headphones.jpg", class: "project-image" %>
   <% else %>
-    <%= image_tag project.youtube_thumbnail, class: "project-image" %>
+    <%= image_tag project.video_thumbnail, class: "project-image" %>
   <% end %>
 
   <h3 class="project-title">

@@ -8,7 +8,15 @@
           Your browser does not support the audio element.
         </audio>
       <% else %>
-        <iframe class="modal-item" src=<%= @project.link %> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe
+          class="modal-item"
+          src="<%= @project.embed_video_link %>"
+          title="Video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
       <% end %>
 
         <div>
@@ -21,7 +29,7 @@
         </div>
         <% if user_signed_in? %>
           <div>
-            <%= link_to "Edit this project", edit_project_path(@project) %> |
+            <%= link_to "Edit this project", edit_project_path(@project), data: { turbo_frame: "_top" } %> |
             <%= button_to "Destroy this project", @project, method: :delete %>
           </div>
         <% end %>

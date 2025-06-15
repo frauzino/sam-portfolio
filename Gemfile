@@ -36,6 +36,8 @@ gem "jbuilder"
 # Use Cloudinary for image and video management [https://cloudinary.com/documentation/rails_integration]
 gem "cloudinary"
 
+gem "active_storage_validations"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
