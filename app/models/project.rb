@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   validates :project_type, presence: true, inclusion: { in: %w[Film Voice Commercial Clown] }
   validates :title, presence: true
   validates :description, presence: true
-  validates :image, attached: true, content_type: ['image/png', 'image/jpeg'], size: { less_than: 10.megabytes, message: 'should be less than 10MB' }
+  validates :image, content_type: ['image/png', 'image/jpeg'], size: { less_than: 10.megabytes, message: 'should be less than 10MB' }
   # validates :link, presence: true, format: { with: URI::regexp(%w[http https]), message: "must be a valid URL" }
 
   before_save :adjust_video_link
@@ -38,11 +38,16 @@ class Project < ApplicationRecord
     return unless link.present?
 
     if link.include?("youtube.com") || link.include?("youtu.be")
-      video_id = if link.include?("youtube.com")
-                    URI.parse(link).query.split("&").find { |param| param.start_with?("v=") }&.split("=")&.last
-                  elsif link.include?("youtu.be")
-                    URI.parse(link).path.split("/").last
-                  end
+      video_id = if link.include?("youtube.com") && URI.parse(link).query.present?
+                   # Handle normal YouTube link with query parameters
+                   URI.parse(link).query.split("&").find { |param| param.start_with?("v=") }&.split("=")&.last
+                 elsif link.include?("youtu.be")
+                   # Handle shortened YouTube link
+                   URI.parse(link).path.split("/").last
+                 elsif link.include?("youtube.com/embed")
+                   # Handle embed YouTube link
+                   URI.parse(link).path.split("/").last
+                 end
       "https://www.youtube.com/embed/#{video_id}" if video_id
     elsif link.include?("vimeo.com")
       video_id = URI.parse(link).path.split("/").last
