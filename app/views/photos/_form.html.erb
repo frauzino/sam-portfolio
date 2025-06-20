@@ -32,6 +32,11 @@
   </div>
 
   <div>
+    <%= form.label :orientation, style: "display: block" %>
+    <%= form.select :orientation, options: ["portrait", "landscape"] %>
+  </div>
+
+  <div>
     <%= form.label :link, style: "display: block" %>
     <%= form.text_field :link %>
   </div>
