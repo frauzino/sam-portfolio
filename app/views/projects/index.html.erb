@@ -1,17 +1,16 @@
 <div class="projects-container" data-controller="filter">
-
   <div class="filter-header">
     <h2 data-filter-target="filter" data-action="click->filter#filter" data-filter="all" class="active">
       All
     </h2>
-    <% @projects.order(project_type: :desc).map(&:project_type).uniq.each do |project_type| %>
+    <% @projects.map(&:project_type).map(&:downcase).uniq.sort_by { |type| ["film", "commercial", "voice", "clown"].index(type) }.each do |project_type| %>
       <h2 data-filter-target="filter" data-action="click->filter#filter" data-filter="<%= project_type.parameterize %>">
         <%= project_type %>
       </h2>
     <% end %>
   </div>
 
-  <% @projects.group_by(&:project_type).sort_by { |type, _| ["film", "voice", "commercial", "clown"].index(type.downcase) }.each do |project_type, projects| %>
+  <% @projects.group_by(&:project_type).sort_by { |type, _| ["film", "commercial", "voice", "clown"].index(type.downcase) }.each do |project_type, projects| %>
     <div class="projects-grid" data-filter-target="item" data-filter="<%= project_type.parameterize %>">
       <% projects.each do |project| %>
         <%= link_to project, data: { turbo_frame: "modal" } do %>

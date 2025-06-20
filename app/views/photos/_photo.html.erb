@@ -1,12 +1,8 @@
-<div id="<%= dom_id photo %>" class="photo <%= photo.photo_type == "Portrait" ? "portrait-photo" : "landscape-photo" %>">
+<div id="<%= dom_id photo %>" class="photo <%= photo.photo_type == "Portrait" ? "portrait-photo" : "production-photo" %>">
   <%= cl_image_tag photo.image.key, class: "photo-image" %>
   <div class="photo-text">
     <% if photo.photo_type == "Portrait" %>
-      <% if photo.link %>
-        <%= link_to photo.description, photo.link, target: "_blank", class: "photo-description" %>
-      <% else %>
-        <p class="photo-description"><%= photo.description %></p>
-      <% end %>
+      <p class="photo-description"><%= photo.description %></p>
     <% else %>
       <p class="photo-title"><%= photo.title %></p>
       <p class="photo-description"><%= photo.description %></p>

@@ -3,11 +3,12 @@
     <div class="<%= @photo.photo_type == "Portrait" ? "portrait-photo" : "landscape-photo"%> modal-content">
       <%= cl_image_tag @photo.image.key, class: "modal-item" %>
       <div class="modal-text">
-        <% if @photo.photo_type == "Portrait" %>
+        <% if @photo.title %><h4 class="modal-title"><%= @photo.title %></h4> <% end %>
+        <% if @photo.description && @photo.link %>
           <%= link_to @photo.description, @photo.link, target: "_blank" %>
+        <% elsif !@photo.description && @photo.link %>
+          <%= link_to @photo.link, target: "_blank" %>
         <% else %>
-          <p class="modal-title"><%= @photo.title %></p>
-          <br>
           <p class="modal-description"><%= @photo.description %></p>
         <% end %>
       <div>

@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "modal" do %>
   <div class="modal">
-    <div class="modal-content">
+    <div class="modal-content project-modal">
       <% if @project.audio_file.attached? %>
         <%= image_tag "headphones.jpg", class: "modal-item" %>
         <audio controls>

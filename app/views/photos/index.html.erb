@@ -4,17 +4,19 @@
     <h2 data-filter-target="filter" data-action="click->filter#filter" data-filter="all" class="active">
       All
     </h2>
-    <% @photos.map(&:photo_type).uniq.each do |photo_type| %>
+    <% @photos.map(&:photo_type).map(&:downcase).uniq.sort_by { |type| ["portrait", "production"].index(type) }.each do |photo_type| %>
       <h2 data-filter-target="filter" data-action="click->filter#filter" data-filter="<%= photo_type.parameterize %>">
         <%= photo_type %>
       </h2>
     <% end %>
   </div>
 
-  <% @photos.group_by(&:photo_type).each do |photo_type, photos| %>
-    <div class="photos-grid" data-filter-target="item" data-filter="<%= photo_type.parameterize %>">
+  <% @photos.group_by(&:photo_type).sort_by { |type, _| ["portrait", "production"].index(type.downcase) }.each do |photo_type, photos| %>
+    <div class="photos-grid <%= photo_type == 'Portrait' ? 'column-grid-4' : '' %>" data-filter-target="item" data-filter="<%= photo_type.parameterize %>">
       <% photos.each do |photo| %>
+        <%= link_to photo, data: { turbo_frame: "modal" } do %>
           <%= render photo %>
+        <% end %>
       <% end %>
     </div>
   <% end %>

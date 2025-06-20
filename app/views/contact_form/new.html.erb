@@ -20,6 +20,8 @@
       <%= form.text_area :message, class: "form-control" %>
     </div>
 
-    <%= form.submit "Send", class: "submit" %>
+    <%= form.submit "Whoosh", class: "submit", onclick: "event.preventDefault(); document.getElementById('button-sound').play(); this.form.submit();" %>
   <% end %>
+
+    <audio id="button-sound" src="<%= asset_path('whoosh.wav') %>"></audio>
 </div>

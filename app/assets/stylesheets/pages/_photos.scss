@@ -16,6 +16,10 @@
   }
 }
 
+.column-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .photos-grid.hidden {
   display: none;
 }
