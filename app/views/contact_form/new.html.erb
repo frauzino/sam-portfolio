@@ -23,5 +23,5 @@
     <%= form.submit "Whoosh", class: "submit", onclick: "event.preventDefault(); document.getElementById('button-sound').play(); this.form.submit();" %>
   <% end %>
 
-    <audio id="button-sound" src="<%= asset_path('whoosh.wav') %>"></audio>
+    <audio id="button-sound" src="/sounds/whoosh.wav"></audio>
 </div>
