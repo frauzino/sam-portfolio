@@ -12,15 +12,19 @@
           <p class="modal-description"><%= @photo.description %></p>
         <% end %>
       <div>
-        <%= link_to "Edit this photo", edit_photo_path(@photo) %> |
         <%= link_to "#", data: {
-        controller: "modals",
+          controller: "modals",
         action: "modals#close"
         }, class: "close-button" do %>
           <%= image_tag "close.png" %>
         <% end %>
-        <%= button_to "Delete this photo", @photo, method: :delete %>
       </div>
+      <% if user_signed_in? %>
+        <div>
+          <%= link_to "Edit this photo", edit_photo_path(@photo) %> |
+          <%= button_to "Delete this photo", @photo, method: :delete %>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>
