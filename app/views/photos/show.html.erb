@@ -21,7 +21,7 @@
       </div>
       <% if user_signed_in? %>
         <div>
-          <%= link_to "Edit this photo", edit_photo_path(@photo) %> |
+          <%= link_to "Edit this photo", edit_photo_path(@photo), data: { turbo_frame: "_top" } %> |
           <%= button_to "Delete this photo", @photo, method: :delete %>
         </div>
       <% end %>
