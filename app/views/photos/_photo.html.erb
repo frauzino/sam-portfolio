@@ -8,9 +8,4 @@
       <p class="photo-description"><%= photo.description %></p>
     <% end %>
   </div>
-  <% if user_signed_in? %>
-    <div class="delete-photo">
-      <%= button_to "Delete this photo", photo, method: :delete %>
-    </div>
-  <% end %>
 </div>
