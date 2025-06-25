@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "modal" do %>
   <div class="modal">
-    <div class="<%= @photo.photo_type == "Portrait" ? "portrait-photo" : "landscape-photo"%> modal-content">
+    <div class="<%= @photo.photo_type == "Portrait" || @photo.orientation == 'portrait' ? "portrait-photo" : "landscape-photo" %> modal-content">
       <%= cl_image_tag @photo.image.key, class: "modal-item" %>
       <div class="modal-text">
         <% if @photo.title %><h4 class="modal-title"><%= @photo.title %></h4> <% end %>

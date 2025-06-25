@@ -40,6 +40,21 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # Action Mailer Configurations
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'yourdomain.com',
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: ENV['EMAIL_USERNAME'],
+    password: ENV['EMAIL_PASSWORD']
+  }
+
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   # config.active_storage.service = :local
   config.active_storage.service = :cloudinary

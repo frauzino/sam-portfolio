@@ -1,7 +1,7 @@
 <div class="page-banner" data-controller="parallax" data-parallax-target="banner">
   <% case current_page?() %>
   <% when current_page?(about_path) %>
-    <%= image_tag "roses.jpg", alt: 'Banner image of Roses', class: 'page-banner-image', style: "transform: translateY(-55rem)" %>
+    <%= image_tag "roses.jpg", alt: 'Banner image of Roses', class: 'page-banner-image', style: "transform: translateY(-42rem)" %>
   <% when current_page?(projects_path) %>
     <%= image_tag "reel.jpg", alt: 'Banner image of a reel', class: 'page-banner-image' %>
   <% when current_page?(events_path) %>

@@ -1,5 +1,16 @@
 <div class="contact-container">
-  <%= form_with scope: :contact_form, url: contact_form_index_path, method: :post, local: true, class: "contact-form" do |form| %>
+  <%#= form_with scope: :contact_form, url: contact_form_index_path, method: :post, local: true, class: "contact-form" do |form| %>
+  <%= form_with model: @contact_form, url: contact_form_index_path, local: true, class: "contact-form" do |form| %>
+    <% if @contact_form.errors.any? %>
+      <div class="errors">
+        <ul>
+          <% @contact_form.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div class="form-group">
       <%= form.label :name, "Name" %>
       <%= form.text_field :name, class: "form-control" %>

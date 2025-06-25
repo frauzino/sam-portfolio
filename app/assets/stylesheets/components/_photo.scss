@@ -1,6 +1,4 @@
 .photo {
-  width: 100%;
-  // aspect-ratio: 2/3;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -62,7 +60,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  // position: absolute;
   z-index: -1;
 }
 
