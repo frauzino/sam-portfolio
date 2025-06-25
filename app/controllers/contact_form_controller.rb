@@ -25,8 +25,8 @@ class ContactFormController < ApplicationController
       flash[:notice] = "Thank you for your message, #{@contact_form.name}. I will get back to you soon."
       redirect_to root_path
     else
-      flash.now[:alert] = 'Please fill in all fields correctly.'
-      render :new
+      flash[:notice] = 'Please fill in all fields correctly.'
+      render :new, status: :unprocessable_entity
     end
   end
 
