@@ -17,7 +17,7 @@
   <%# Mobile Nav %>
   <div class="mobile-navbar-inner" data-controller="navbar">
     <%= link_to "Samantha Bitonti", root_path, class: "mobile-brand" %>
-    <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation" data-action="click->navbar#toggleMenu">
+    <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation" data-turbo="false" data-action="click->navbar#toggleMenu">
       <svg class="hamburger-icon" width="140" height="116" viewBox="0 0 140 116" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5 5H135" stroke-width="10" stroke-linecap="round"/>
         <path d="M5 58H135" stroke-width="10" stroke-linecap="round"/>
