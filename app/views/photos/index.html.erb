@@ -14,7 +14,7 @@
   <% @photos.group_by(&:photo_type).sort_by { |type, _| ["portrait", "production"].index(type.downcase) }.each do |photo_type, photos| %>
     <div class="photos-grid <%= photo_type == 'Portrait' ? 'column-grid-4' : '' %>" data-filter-target="item" data-filter="<%= photo_type.parameterize %>">
       <% photos.each do |photo| %>
-        <%= link_to photo, data: { turbo_frame: "modal" } do %>
+        <%= link_to photo, data: { turbo_frame: "modal" }, class: photo.orientation =='landscape' ? 'landscape-wrapper' : 'portrait-wrapper' do %>
           <%= render photo %>
         <% end %>
       <% end %>

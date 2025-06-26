@@ -30,3 +30,16 @@
   height: 1px;
   background-color: var(--neutral-700);
 }
+
+@media screen and (max-width: 768px) {
+
+  .filter-header {
+    padding-bottom: .5rem;
+  }
+
+  .filter-header h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+}

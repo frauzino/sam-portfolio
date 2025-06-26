@@ -14,3 +14,21 @@
   object-position: center;
   width: 7rem;
 }
+
+@media screen and (max-width: 768px) {
+  .text-with-image {
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+
+  .twi-text {
+    text-align: center;
+  }
+
+  .twi-image {
+    width: 25%;
+    height: auto;
+  }
+
+}

@@ -27,6 +27,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  overflow: auto;
 }
 
 .project-modal {
@@ -37,9 +38,14 @@
   margin-top: .5rem;
 }
 
+audio {
+  width: 100%;
+}
+
 .close-button {
   display: flex;
   height: 15px;
+  width: 15px;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -60,5 +66,30 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    max-width: 75vw;
+    height: auto;
+    padding: 1.75rem;
+  }
+
+  .close-button {
+    top: 2.5px;
+    right: 2.5px;
+  }
+
+  .project-modal {
+    aspect-ratio: auto;
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+  }
+
+  .modal-text {
+    font-size: 1rem;
   }
 }

@@ -76,3 +76,20 @@
   top: 0;
   right: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .photo-text {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .photo-title {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+
+  .photo-description {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}

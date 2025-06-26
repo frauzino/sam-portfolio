@@ -21,7 +21,7 @@
   font-size: 1.2rem;
 }
 
-.form-group input, .field-with-errors input, textarea {
+.form-group input, .field_with_errors input, textarea {
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid var(--neutral-300);
@@ -47,5 +47,20 @@
     background-color: var(--neutral-600);
     color: var(--text-color-light);
     border-color: var(--neutral-600);
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .contact-form {
+    width: 100%;
+  }
+
+  .form-group input, textarea {
+    width: auto;
+  }
+
+  .field_with_errors input {
+    width: 95%;
   }
 }

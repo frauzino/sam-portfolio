@@ -36,3 +36,21 @@
   transition: transform 0.1s ease-out; /* Smooth scrolling effect */
   filter: brightness(.8);
 }
+
+@media screen and (max-width: 768px) {
+  .home-banner {
+    height: 60vh;
+  }
+
+  .home-banner-image {
+    transform: none; /* Adjust for smaller screens */
+  }
+
+  .page-banner {
+    height: 40vh;
+  }
+
+  .page-banner-image {
+    transform: translateY(-1rem) !important; /* Adjust for smaller screens */
+  }
+}

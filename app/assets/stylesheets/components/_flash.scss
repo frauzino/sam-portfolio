@@ -21,3 +21,12 @@
     opacity: 0;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .flash {
+    top: 4rem;
+    right: .5rem;
+    padding: .5rem;
+  }
+
+}

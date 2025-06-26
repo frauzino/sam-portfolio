@@ -19,3 +19,20 @@
 .events-grid.hidden {
   display: none;
 }
+
+@media screen and (max-width: 768px) {
+  .events-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .events-grid a {
+    max-height: 20rem;
+  }
+
+  .landscape-wrapper {
+    grid-column: span 2;
+  }
+
+}
