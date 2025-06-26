@@ -7,6 +7,7 @@ export default class extends Controller {
 
   connect() {
     this.activateFilter(this.filterTargets[0])
+    this.addTouchSupport
   }
 
   filter(event) {
@@ -28,5 +29,14 @@ export default class extends Controller {
     this.filterTargets.forEach((f) => f.classList.remove("active"))
 
     filter.classList.add("active")
+  }
+
+  addTouchSupport() {
+    this.filterTargets.forEach((filter) => {
+      filter.addEventListener("touchstart", (event) => {
+        event.preventDefault() // Prevent default touch behavior
+        this.filter(event) // Trigger the filter method
+      }, { passive: true })
+    })
   }
 }
