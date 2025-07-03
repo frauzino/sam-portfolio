@@ -9,6 +9,9 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    unless turbo_frame_request?
+      redirect_to events_path, notice: 'Unauthorized access'
+    end
   end
 
   # GET /events/new

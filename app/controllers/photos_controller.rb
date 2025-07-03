@@ -9,6 +9,9 @@ class PhotosController < ApplicationController
 
   # GET /photos/1 or /photos/1.json
   def show
+    unless turbo_frame_request?
+      redirect_to photos_path, notice: 'Unauthorized access'
+    end
   end
 
   # GET /photos/new

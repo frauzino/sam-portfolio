@@ -3,10 +3,22 @@
     <div class="modal-content project-modal">
       <% if @project.audio_file.attached? %>
         <%= image_tag "headphones.jpg", class: "modal-item" %>
-        <audio controls>
-          <source src="<%= url_for(@project.audio_file) %>" type="<%= @project.audio_file.content_type %>">
-          Your browser does not support the audio element.
-        </audio>
+        <div class="audio-player" data-controller="audio">
+          <audio data-audio-target="audio">
+            <source src="<%= url_for(@project.audio_file) %>" type="<%= @project.audio_file.content_type %>">
+            Your browser does not support the audio element.
+          </audio>
+          <div class="controls">
+            <button class="play-button" data-action="click->audio#togglePlayback" data-audio-target="button">
+              ▶️
+            </button>
+            <input type="range" value="0" min="0" max="100"
+              data-audio-target="progress"
+              data-action="input->audio#seek"
+              class="progress-bar"
+            />
+          </div>
+        </div>
       <% else %>
         <iframe
           class="modal-item"

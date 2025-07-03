@@ -2,22 +2,12 @@
   <div class="modal">
     <div class="<%= @photo.photo_type == "Portrait" || @photo.orientation == 'portrait' ? "portrait-photo" : "landscape-photo" %> modal-content">
       <%= cl_image_tag @photo.image.key, class: "modal-item" %>
-      <div class="modal-text">
-        <% if @photo.title %><h4 class="modal-title"><%= @photo.title %></h4> <% end %>
-        <% if @photo.description && @photo.link %>
-          <%= link_to @photo.description, @photo.link, target: "_blank" %>
-        <% elsif !@photo.description && @photo.link %>
-          <%= link_to @photo.link, target: "_blank" %>
-        <% else %>
-          <p class="modal-description"><%= @photo.description %></p>
-        <% end %>
-      <div>
-        <%= link_to "#", data: {
-          controller: "modals",
-        action: "modals#close"
-        }, class: "close-button" do %>
-          <%= image_tag "close.png" %>
-        <% end %>
+      <%= link_to "#", data: {
+        controller: "modals",
+      action: "modals#close"
+      }, class: "close-button" do %>
+        <%= image_tag "close.png" %>
+      <% end %>
       </div>
       <% if user_signed_in? %>
         <div>
