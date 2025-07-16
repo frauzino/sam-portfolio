@@ -1,0 +1,50 @@
+<%= turbo_frame_tag "modal" do %>
+  <div class="modal">
+    <div class="modal-content project-modal">
+      <% if @project.audio_file.attached? %>
+        <%= image_tag "headphones.jpg", class: "modal-item" %>
+        <div class="audio-player" data-controller="audio">
+          <audio data-audio-target="audio">
+            <source src="<%= url_for(@project.audio_file) %>" type="<%= @project.audio_file.content_type %>">
+            Your browser does not support the audio element.
+          </audio>
+          <div class="controls">
+            <button class="play-button" data-action="click->audio#togglePlayback" data-audio-target="button">
+              ▶️
+            </button>
+            <input type="range" value="0" min="0" max="100"
+              data-audio-target="progress"
+              data-action="input->audio#seek"
+              class="progress-bar"
+            />
+          </div>
+        </div>
+      <% else %>
+        <iframe
+          class="modal-item"
+          src="<%= @project.embed_video_link %>"
+          title="Video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      <% end %>
+
+        <div>
+          <%= link_to "#", data: {
+            controller: "modals",
+          action: "modals#close"
+          }, class: "close-button" do %>
+            <%= image_tag "close.png" %>
+          <% end %>
+        </div>
+        <% if user_signed_in? %>
+          <div>
+            <%= link_to "Edit this project", edit_project_path(@project), data: { turbo_frame: "_top" } %> |
+            <%= button_to "Destroy this project", @project, method: :delete %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+<% end %>

@@ -22,6 +22,15 @@
   }
 }
 
+.flash.safari-flash {
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
 @media screen and (max-width: 768px) {
   .flash {
     top: 4rem;
