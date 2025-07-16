@@ -30,3 +30,18 @@
     <%= render "components/footer" %>
   </body>
 </html>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const isSafari = navigator.userAgent.includes("Safari") && !navigator.userAgent.includes("Chrome");
+
+    if (isSafari) {
+      const flashContainer = document.querySelector(".flash-messages");
+      if (flashContainer) {
+        const safariFlashMessage = document.createElement("div");
+        safariFlashMessage.className = "flash safari-flash";
+        safariFlashMessage.innerText = "You are using Safari. Some features may behave differently. It is recommended to use a different browser for the best experience.";
+        flashContainer.appendChild(safariFlashMessage);
+      }
+    }
+  });
+</script>

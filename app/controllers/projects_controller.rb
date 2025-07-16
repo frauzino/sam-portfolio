@@ -8,12 +8,16 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1 or /projects/1.json
+  # def show
+  #   if turbo_frame_request?
+  #     render partial: "projects/modal", locals: { project: @project }
+  #   else
+  #     redirect_to projects_path, notice: "Unauthorized access"
+  #   end
+  # end
   def show
-    if turbo_frame_request?
-      render partial: "projects/modal", locals: { project: @project }
-    else
-      redirect_to projects_path, notice: "Unauthorized access"
-    end
+    Rails.logger.debug "Turbo Frame Request: #{turbo_frame_request?}"
+    render partial: 'projects/modal', locals: { project: @project }
   end
 
   # GET /projects/new
