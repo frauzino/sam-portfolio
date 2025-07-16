@@ -9,8 +9,10 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
-    unless turbo_frame_request?
-      redirect_to projects_path, notice: 'Unauthorized access'
+    if turbo_frame_request?
+      render partial: "projects/modal", locals: { project: @project }
+    else
+      redirect_to projects_path, notice: "Unauthorized access"
     end
   end
 
