@@ -20,6 +20,12 @@
   display: none;
 }
 
+.event-edit-options {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 @media screen and (max-width: 768px) {
   .events-grid {
     grid-template-columns: repeat(1, 1fr);

@@ -14,7 +14,14 @@
     <p>
       <%= event.date %>
     </p>
-    <%= link_to "Learn More", event.link %>
+    <%= link_to "Learn More", event.link, target: "_blank" %>
   </div>
+
+  <% if user_signed_in? %>
+    <div class="event-edit-options">
+      <%= link_to "Edit this event", edit_event_path(event), data: { turbo_frame: "_top" } %>
+      <%= button_to "Delete this event", event, method: :delete %>
+    </div>
+  <% end %>
 
 </div>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'about' => 'pages#about', as: :about
+  get 'private_lessons' => 'pages#private_lessons', as: :private_lessons
 
   resources :projects
   resources :photos
