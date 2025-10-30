@@ -1,6 +1,9 @@
 <div class="contact-container">
   <%#= form_with scope: :contact_form, url: contact_form_index_path, method: :post, local: true, class: "contact-form" do |form| %>
-  <%= form_with model: @contact_form, url: contact_form_path, local: true, class: "contact-form" do |form| %>
+  <%= form_with model: @contact_form,
+                url: contact_form_path,
+                local: true, class: "contact-form",
+                data: { controller: "recaptcha "} do |form| %>
     <% if @contact_form.errors.any? %>
       <div class="errors">
         <ul>
@@ -31,7 +34,8 @@
       <%= form.text_area :message, class: "form-control" %>
     </div>
 
-    <%= form.submit "Whoosh", class: "submit", onclick: "event.preventDefault(); document.getElementById('button-sound').play(); this.form.submit();" %>
+    <%= recaptcha_tags %>
+    <%= form.submit "Whoosh", id: "contact-submit", class: "submit", onclick: "event.preventDefault(); document.getElementById('button-sound').play(); this.form.submit();" %>
   <% end %>
 
     <audio id="button-sound" src="/sounds/whoosh.wav"></audio>
