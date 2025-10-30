@@ -41,6 +41,9 @@ gem "active_storage_validations"
 # Use letter_opener for mail testing
 gem "letter_opener", group: :development
 
+# Use Google reCAPTCHA v2
+gem "recaptcha", require: "recaptcha/rails"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
